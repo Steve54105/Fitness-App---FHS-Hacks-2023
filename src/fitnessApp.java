@@ -1,7 +1,6 @@
 import java.util.Scanner;
-import java.util.ArrayList;
 
-public class Main {
+public class fitnessApp {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("\nWelcome to myFitnessPal!"); //Introductory stuff
@@ -47,13 +46,15 @@ public class Main {
             intermediate();
         if(skillLevel.equalsIgnoreCase("Expert"))
             expert();
-        System.out.println("\nBased on this information, we're going to have you rest on: " + restDays(trainingDays));
+        System.out.println("\nYou can always try to incorporate new exercises or target certain muscle groups. The more you exercise, the more you learn.");
+        System.out.println("You specified you want to work " +trainingDays+ " days each week. Thus, we suggest you rest on: "+ restDays(trainingDays));
 
 
 
 
 
-        System.out.println("Please note that the provided information is generalized, and if you wish to pursue this passion further, it is recommended to conduct your own research.");
+        System.out.println("\n\nPlease note that the provided information is generalized, and if you wish to pursue this passion further, it is recommended to conduct your own research.");
+        System.out.println("Thank you for using myFitnessPal and good luck with your fitness journey!");
 
     }
     public static double calculateBMI(double height, double weight) { //Method to calculate the numerical BMI
@@ -136,13 +137,13 @@ public class Main {
 
     }
     public static String restDays(int Days){
-        String[] weekDays = {"Monday","Tuesday","Wednesday","Thursday"};
+        String[] weekDays = {"Monday","Wednesday","Thursday","Sunday"};
         String hold = "Monday, ";
 
         for(int i = 1; i < 7-Days; i++){
             hold += weekDays[i] + ", ";
         }
-        if(Days >4){
+        if(Days <5){
             for(int j = hold.length()-2; j > 0; j--){
                 if(hold.charAt(j)==' '){
                     hold = hold.substring(0,j) + " and"+ hold.substring(j);
@@ -152,6 +153,34 @@ public class Main {
         }
 
         return hold.substring(0,hold.length()-2);
+    }
+
+    public static void beginner(){
+    System.out.println("\nHere are some light and effective exercises to try as a beginner:");
+        System.out.println("(*) Walking or Jogging");
+        System.out.println("(*) Bodyweight Exercises / Light Calisthenics");
+        System.out.println("(*) Dumbell Exercises");
+        System.out.println("(*) Yoga (Use resistance bands + medicine ball!)");
+        System.out.println("(*) Cycling");
+        System.out.println("(*) Swimming");
+    }
+    public static void intermediate(){
+        System.out.println("\nHere are some exercises that will build upon fundamentals and encourage exploration for an intermediate gym-goer:");
+        System.out.println("(*) Compound Strength Exercises");
+        System.out.println("(*) Resistance Training");
+        System.out.println("(*) Plyometyric Training");
+        System.out.println("(*) Interval Training");
+        System.out.println("(*) Functional Training");
+        System.out.println("(*) Swimming");
+    }
+    public static void expert(){
+        System.out.println("\nHere are some challenging exercises that will test your physical abilities as an expert:");
+        System.out.println("(*) High-Intensity Inteval Training (HIIT)");
+        System.out.println("(*) Weightlifting");
+        System.out.println("(*) Plyometrics");
+        System.out.println("(*) Advanced Bodyweight Training");
+        System.out.println("(*) Crossfit");
+        System.out.println("(*) Endurance Training");
     }
 
 }
